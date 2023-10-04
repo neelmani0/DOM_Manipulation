@@ -77,6 +77,10 @@ let url = "https://reqres.in/api/users"
 // after refactor
 
 loadDataButton.addEventListener("click", () => {
+    fetchAndrender();
+  });
+  
+  function fetchAndrender(){
     fetch(`https://reqres.in/api/users`)
       .then((res) => res.json())
       .then((data) => {
@@ -85,7 +89,8 @@ loadDataButton.addEventListener("click", () => {
       let cardList=getcardList(data);
       mainSection.append(cardList);
       });
-  });
+  }
+
   
   function getcardList(data){
       const cardList = document.createElement("div");
